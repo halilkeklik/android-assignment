@@ -4,7 +4,7 @@ import com.arabam.android.assigment.models.CarModel
 
 class CarList {
     companion object {
-        fun getCarList() {
+        fun createCarList() {
             val carList = ArrayList<CarModel>()
             carList.add(
                     CarModel(
