@@ -10,26 +10,27 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 
-class ViewHolder constructor(val carView: View) :
-        RecyclerView.ViewHolder(carView) {
-    val cardView: CardView = itemView.findViewById(R.id.cardview)
+class ViewHolder constructor(
+    val carView: View
+    ) : RecyclerView.ViewHolder(carView) {
     val carPhoto: ImageView = carView.findViewById(R.id.photo)
     val carTitle: TextView = carView.findViewById(R.id.title)
     val carModelName: TextView = carView.findViewById(R.id.modelName)
     val carPrice: TextView =carView.findViewById(R.id.price)
 
     fun bind(carModel: CarModel){
-        carTitle.setText(carModel.title)
-        carModelName.setText(carModel.modelName)
-        carPrice.setText(carModel.priceFormatted)
 
         val requestOptions= RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
+                .error(R.drawable.ic_launcher_foreground)
 
-        Glide.with(carView)
+        Glide.with(carView.context)
                 .applyDefaultRequestOptions(requestOptions)
                 .load(carModel.photo)
                 .into(carPhoto)
+
+        carTitle.setText(carModel.title)
+        carModelName.setText(carModel.modelName)
+        carPrice.setText(carModel.priceFormatted)
     }
 }

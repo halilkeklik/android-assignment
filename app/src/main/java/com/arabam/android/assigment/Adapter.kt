@@ -12,7 +12,7 @@ class Adapter(): RecyclerView.Adapter<ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.activity_main,parent,false)
+            LayoutInflater.from(parent.context).inflate(R.layout.card_view,parent,false)
         )
     }
 
@@ -29,7 +29,10 @@ class Adapter(): RecyclerView.Adapter<ViewHolder>() {
     }
 
     fun submitList(carList: List<CarModel>) {
-        carlist = carList
+        this.carlist = carList
+
+        notifyDataSetChanged()
+
     }
 
 
