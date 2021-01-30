@@ -28,6 +28,7 @@ class ViewHolder constructor(val carView: View) :
                 .error(R.drawable.ic_launcher_background)
 
         Glide.with(carView)
+                .applyDefaultRequestOptions(requestOptions)
                 .load(carModel.photo)
                 .into(carPhoto)
     }

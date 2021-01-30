@@ -4,11 +4,12 @@ import com.arabam.android.assigment.models.CarModel
 
 class CarList {
     companion object {
-        fun createCarList() {
+
+        fun createCarList(): ArrayList<CarModel> {
             val carList = ArrayList<CarModel>()
             carList.add(
                     CarModel(
-                            "Url",
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
                             "Car",
                             "Audi",
                             "500000",
@@ -16,12 +17,173 @@ class CarList {
             )
             carList.add(
                     CarModel(
-                            "URl",
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
                             "Car2",
                             "BVM",
                             "40000000"
                     )
             )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car",
+                            "Audi",
+                            "500000",
+                    )
+            )
+            carList.add(
+                    CarModel(
+                            "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hepsiburada.com%2Fwildlebend-metal-mini-woswos-cek-birak-oyuncak-araba-pm-HB000005SAD2&psig=AOvVaw0V0RNKX2r0t-UZ90AkcOqp&ust=1612078319833000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOijhfCRw-4CFQAAAAAdAAAAABAD",
+                            "Car2",
+                            "BVM",
+                            "40000000"
+                    )
+            )
+            return carList
         }
     }
 }

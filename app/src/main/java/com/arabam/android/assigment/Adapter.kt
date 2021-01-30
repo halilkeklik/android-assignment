@@ -6,9 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.models.CarModel
 import com.arabam.android.assigment.models.ViewHolder
 
-class Adapter: RecyclerView.Adapter<ViewHolder>() {
+class Adapter(): RecyclerView.Adapter<ViewHolder>() {
 
-    private var cars: List<CarModel> = ArrayList()
+    private var carlist: List<CarModel> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -19,17 +19,17 @@ class Adapter: RecyclerView.Adapter<ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         when(holder){
             is ViewHolder ->{
-                holder.bind(cars.get(position))
+                holder.bind(carlist.get(position))
             }
         }
     }
 
     override fun getItemCount(): Int {
-        return cars.size
+        return carlist.size
     }
 
     fun submitList(carList: List<CarModel>) {
-        cars = carList
+        carlist = carList
     }
 
 
