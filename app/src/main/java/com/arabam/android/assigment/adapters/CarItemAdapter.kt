@@ -12,7 +12,7 @@ class CarItemAdapter() : RecyclerView.Adapter<CarItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarItemViewHolder {
         return CarItemViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
         )
     }
 
