@@ -1,4 +1,4 @@
-package com.arabam.android.assigment.ui
+package com.arabam.android.assigment.ui.fragments
 
 import android.os.Bundle
 import android.view.View
@@ -21,10 +21,6 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
         addCarList()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     private fun addCarList() {
         carItemAdapter.submitList(CarRepository.getCarList())
     }
@@ -36,6 +32,5 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
             adapter = carItemAdapter
         }
     }
-
 
 }

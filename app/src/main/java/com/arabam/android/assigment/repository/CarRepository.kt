@@ -1,7 +1,6 @@
 package com.arabam.android.assigment.repository
 
-import com.arabam.android.assigment.models.CarItem
-import com.arabam.android.assigment.models.Location
+import com.arabam.android.assigment.models.*
 
 class CarRepository {
     companion object {
@@ -12,14 +11,19 @@ class CarRepository {
                 CarItem(
                     15207658,
                     "Sahibinden Suzuki SX4 1.6 GLX 2010 Model",
-
                     "SX4 1.6 GLX Manuel",
-                    106000.0,
+                    106000.21,
                     null,
                     "2020-11-11T00:00:00",
                     "11 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/08/13/15207658/bb8fbec7-765c-48ef-96cd-e2935b72947b_image_for_silan_15207658_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("Kocaeli", "İzmit"),
+                    Category(25130, "otomobil/suzuki-sx4-1-6-glx"),
+                    listOf(
+                        Properties("km", "126000"),
+                        Properties("color", ""),
+                        Properties("year", "2010")
+                    )
                 )
             )
             carList.add(
@@ -32,7 +36,13 @@ class CarRepository {
                     "2020-11-11T00:00:00",
                     "11 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/11/15948868/9558803d-c0e5-4966-8f1d-3a7a04d7fd9c_image_for_silan_15948868_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("Kastamonu", "Merkez"),
+                    Category(17797, "otomobil/fiat-egea-1-3-multijet-easy"),
+                    listOf(
+                        Properties("km", "79000"),
+                        Properties("color", "Beyaz"),
+                        Properties("year", "2017")
+                    )
                 )
             )
             carList.add(
@@ -45,7 +55,13 @@ class CarRepository {
                     "2020-11-12T00:00:00",
                     "12 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/11/15943485/343f8e5d-e92c-4e07-b79d-e4af75b50e9f_image_for_silan_15943485_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("İstanbul", "Üsküdar"),
+                    Category(82986, "otomobil/skoda-scala-1-6-tdi-premium"),
+                    listOf(
+                        Properties("km", "0"),
+                        Properties("color", "Gri"),
+                        Properties("year", "2020")
+                    )
                 )
             )
             carList.add(
@@ -58,7 +74,13 @@ class CarRepository {
                     "2020-11-12T00:00:00",
                     "12 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/09/12/15456643/3c5b2dd1-856f-406f-8d10-1450061d1966_image_for_silan_15456643_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("Bursa", "Kestel"),
+                    Category(8035, "otomobil/dacia-logan-1-5-dci-ambiance"),
+                    listOf(
+                        Properties("km", "267000"),
+                        Properties("color", "Beyaz"),
+                        Properties("year", "2008")
+                    )
                 )
             )
             carList.add(
@@ -71,7 +93,13 @@ class CarRepository {
                     "2020-11-12T00:00:00",
                     "12 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/12/15954889/18b8ef36-ec80-4ca0-8b9c-d4f63f21a014_image_for_silan_15954889_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("Konya", "Karatay"),
+                    Category(23469, "otomobil/bmw-3-serisi-320d-standart"),
+                    listOf(
+                        Properties("km", "490000"),
+                        Properties("color", "Siyah"),
+                        Properties("year", "2007")
+                    )
                 )
             )
             carList.add(
@@ -84,7 +112,13 @@ class CarRepository {
                     "2020-11-12T00:00:00",
                     "12 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/11/15949335/ee9754d4-536e-46a7-acb4-57ab749be576_image_for_silan_15949335_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("İstanbul", "Avcılar"),
+                    Category(11654, "otomobil/volkswagen-passat-2-0-tdi-bluemotion-comfortline"),
+                    listOf(
+                        Properties("km", "132000"),
+                        Properties("color", ""),
+                        Properties("year", "2015")
+                    )
                 )
             )
             carList.add(
@@ -97,7 +131,13 @@ class CarRepository {
                     "2020-11-12T00:00:00",
                     "12 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/12/15954751/cad6412e-5500-45fe-84d0-5b57e0d7eb05_image_for_silan_15954751_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("İstanbul", "Kağıthane"),
+                    Category(18470, "otomobil/fiat-linea-1-6-multijet-lounge"),
+                    listOf(
+                        Properties("km", "78400"),
+                        Properties("color", ""),
+                        Properties("year", "2013")
+                    )
                 )
             )
             carList.add(
@@ -110,7 +150,13 @@ class CarRepository {
                     "2020-11-12T00:00:00",
                     "12 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/10/15935112/45d92936-6d44-42b3-aa64-5e41a3c18278_image_for_silan_15935112_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("Sakarya", "Hendek"),
+                    Category(61575, "otomobil/volkswagen-polo-1-0-comfortline"),
+                    listOf(
+                        Properties("km", "78000"),
+                        Properties("color", ""),
+                        Properties("year", "2018")
+                    )
                 )
             )
             carList.add(
@@ -123,11 +169,44 @@ class CarRepository {
                     "2020-11-12T00:00:00",
                     "12 Kasım 2020",
                     "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/12/15952894/18b3acfb-8a22-4512-96f5-924cea110ba7_image_for_silan_15952894_800x600.jpg",
-                    Location("Mersin", "Icel")
+                    Location("Hatay", "İskenderun"),
+                    Category(12848, "otomobil/volkswagen-bora-1-6-comfortline-variant"),
+                    listOf(
+                        Properties("km", "260000"),
+                        Properties("color", "Yeşil (metalik)"),
+                        Properties("year", "2001")
+                    )
                 )
             )
 
             return carList
         }
+
+        fun getCarDetail(): CarDetail {
+
+            return CarDetail(
+                15943485,
+                "2020 SKODA SCALA ( senetle taksitlendirme seçengimiz vardır )",
+                "Scala 1.6 TDI SCR Premium DSG",
+                309750.0,
+                "309750 TL",
+                "2020-11-11T00:00:00",
+                "11 Kasım 2020",
+                listOf(
+                    "https://arbstorage.mncdn.com/ilanfotograflari/2020/08/13/15207658/bb8fbec7-765c-48ef-96cd-e2935b72947b_image_for_silan_15207658_1920x1080.jpg",
+                    "https://arbstorage.mncdn.com/ilanfotograflari/2020/11/12/15952894/18b3acfb-8a22-4512-96f5-924cea110ba7_image_for_silan_15952894_800x600.jpg",                ),
+                Location("İstanbul", "Üsküdar"),
+                Category(82986, "otomobil/skoda-scala-1-6-tdi-premium"),
+                listOf(
+                    Properties("km", "0"),
+                    Properties("color", "Gri"),
+                    Properties("year", "2020"),
+                    Properties("gear", "Yarı Otomatik"),
+                    Properties("fuel", "Dizel")
+                ),
+                UserInfo(548787, "Amelia Bowman", "9000061415", "9000061415")
+            )
+        }
     }
+
 }

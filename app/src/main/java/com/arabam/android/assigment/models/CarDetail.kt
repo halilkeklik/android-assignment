@@ -1,6 +1,6 @@
 package com.arabam.android.assigment.models
 
-data class CarItem(
+data class CarDetail(
     val id: Int,
     val title: String?,
     val modelName: String?,
@@ -8,13 +8,10 @@ data class CarItem(
     val priceFormatted: String?,
     val date: String,
     val dateFormatted: String?,
-    val photo: String?,
+    val photos: List<String>?,
     val location: Location,
     val category: Category,
-    val properties: List<Properties>?
+    val properties: List<Properties>,
+    val userInfo: UserInfo
 )
-
-
-
-
 
