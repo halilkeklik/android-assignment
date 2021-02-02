@@ -4,9 +4,16 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
+import com.arabam.android.assigment.models.CarDetail
 import com.arabam.android.assigment.models.CarItem
 
-class CarItemAdapter() : RecyclerView.Adapter<CarItemViewHolder>() {
+class CarItemAdapter(
+    var onItemClickListener: OnItemClickListener
+) : RecyclerView.Adapter<CarItemViewHolder>() {
+
+    interface OnItemClickListener {
+        fun onItemClicked(id: Int)
+    }
 
     private var carlist: List<CarItem> = mutableListOf()
 
@@ -21,6 +28,9 @@ class CarItemAdapter() : RecyclerView.Adapter<CarItemViewHolder>() {
             is CarItemViewHolder -> {
                 holderCarItem.bind(carlist[position])
             }
+        }
+        holderCarItem.itemView.setOnClickListener {
+            onItemClickListener.onItemClicked(carlist[position].id)
         }
     }
 

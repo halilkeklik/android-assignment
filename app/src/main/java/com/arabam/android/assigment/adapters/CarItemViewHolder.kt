@@ -3,6 +3,7 @@ package com.arabam.android.assigment.adapters
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
 import com.arabam.android.assigment.models.CarItem
@@ -12,6 +13,8 @@ import com.bumptech.glide.request.RequestOptions
 class CarItemViewHolder(
     private val view: View
 ) : RecyclerView.ViewHolder(view) {
+
+    private val cardView: CardView = view.findViewById(R.id.cardview)
     private val imageView: ImageView = view.findViewById(R.id.photo)
     private val titleTextView: TextView = view.findViewById(R.id.title)
     private val locationTextView: TextView = view.findViewById(R.id.location)
@@ -25,7 +28,8 @@ class CarItemViewHolder(
 
         Glide.with(view.context)
             .applyDefaultRequestOptions(requestOptions)
-            .load(carItem.photo)
+            .load(carItem.photo?.replace("{0}", "800x600", false))
+            .fitCenter()
             .into(imageView)
 
         titleTextView.text = carItem.title

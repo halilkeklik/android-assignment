@@ -12,6 +12,7 @@ data class CarDetail(
     val location: Location,
     val category: Category,
     val properties: List<Properties>,
-    val userInfo: UserInfo
+    val userInfo: UserInfo,
+    val text: String?
 )
 

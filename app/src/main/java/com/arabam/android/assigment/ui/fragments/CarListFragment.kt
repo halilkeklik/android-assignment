@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
 import com.arabam.android.assigment.adapters.CarItemAdapter
 import com.arabam.android.assigment.repository.CarRepository
+import com.arabam.android.assigment.ui.activites.MainActivity
 
-class CarListFragment : Fragment(R.layout.fragment_car_list) {
+class CarListFragment : Fragment(R.layout.fragment_car_list), CarItemAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var carItemAdapter: CarItemAdapter
@@ -28,9 +29,14 @@ class CarListFragment : Fragment(R.layout.fragment_car_list) {
     private fun initRecyclerView() {
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            carItemAdapter = CarItemAdapter()
+            carItemAdapter = CarItemAdapter(this@CarListFragment)
             adapter = carItemAdapter
         }
     }
+
+    override fun onItemClicked(id: Int) {
+        (activity as MainActivity).showCarDetailFragment(id)
+    }
+
 
 }
