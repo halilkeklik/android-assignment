@@ -14,12 +14,15 @@ class CarListFragment : Fragment(R.layout.fragment_car_list), CarItemAdapter.OnI
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var carItemAdapter: CarItemAdapter
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView = view.findViewById(R.id.recyclerview)
         initRecyclerView()
         addCarList()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
     private fun addCarList() {

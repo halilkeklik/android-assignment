@@ -1,10 +1,10 @@
 package com.arabam.android.assigment.adapters
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
-import com.arabam.android.assigment.models.CarDetail
 import com.arabam.android.assigment.models.CarItem
 
 class CarItemAdapter(

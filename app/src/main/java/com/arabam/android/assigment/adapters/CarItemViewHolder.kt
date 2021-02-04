@@ -14,7 +14,6 @@ class CarItemViewHolder(
     private val view: View
 ) : RecyclerView.ViewHolder(view) {
 
-    private val cardView: CardView = view.findViewById(R.id.cardview)
     private val imageView: ImageView = view.findViewById(R.id.photo)
     private val titleTextView: TextView = view.findViewById(R.id.title)
     private val locationTextView: TextView = view.findViewById(R.id.location)

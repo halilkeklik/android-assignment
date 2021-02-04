@@ -18,34 +18,50 @@
         <TextView
             android:id="@+id/detail_title"
             android:layout_width="match_parent"
-            android:layout_height="39dp"
+            android:textStyle="bold"
+            android:layout_height="47dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="5dp"
+            android:textSize="15sp"
             android:text="Title" />
 
         <TextView
-            android:id="@+id/detail_price"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginTop="10dp"
+            android:id="@+id/detail_model"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:textSize="14sp"
+            android:text="model" />
+
+        <TextView
+            android:id="@+id/detail_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:textSize="14sp"
             android:text="price" />
 
 
         <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
+            android:id="@+id/detail_date"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="model" />
+            android:textSize="14sp"
+            android:layout_marginEnd="5dp"/>
 
-        <ListView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/detail_properties"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"/>
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -185,7 +185,7 @@ class CarRepository {
         fun getCarDetail(): CarDetail {
 
             return CarDetail(
-                15943485,
+                15207658,
                 "2020 SKODA SCALA ( senetle taksitlendirme seçengimiz vardır )",
                 "Scala 1.6 TDI SCR Premium DSG",
                 309750.0,
