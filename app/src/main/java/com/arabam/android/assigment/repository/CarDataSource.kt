@@ -24,7 +24,7 @@ class CarDataSource(
         params: LoadInitialParams<Int>,
         callback: LoadInitialCallback<Int, CarItem>,
     ) {
-        load(1) { before, next, response -> callback.onResult(response, before, next) }
+        load(0) { before, next, response -> callback.onResult(response, before, next) }
     }
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, CarItem>) {
@@ -41,7 +41,9 @@ class CarDataSource(
     ) {
         updateState(State.LOADING)
         compositeDisposable.add(
-            carRepository.getCarList(TAKE_COUNT * (page - 1))
+            carRepository.getCarList(TAKE_COUNT * page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                     { response ->
                         isLastPage = response.size < TAKE_COUNT

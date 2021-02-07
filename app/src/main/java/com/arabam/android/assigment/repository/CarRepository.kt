@@ -8,7 +8,7 @@ class CarRepository {
     private val arabamAPIService = ArabamAPIService()
 
     companion object {
-        public const val TAKE_COUNT = 10
+        public const val TAKE_COUNT = 50
     }
 
     fun getCarList(skip: Int = 0, take: Int = TAKE_COUNT): Single<List<CarItem>> {
