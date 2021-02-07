@@ -27,8 +27,8 @@ class CarItemViewHolder(
 
         Glide.with(view.context)
             .applyDefaultRequestOptions(requestOptions)
-            .load(carItem.photo?.replace("{0}", "800x600", false))
-            .fitCenter()
+            .load(carItem.photo?.replace("{0}", "580x435", false))
+            .centerCrop()
             .into(imageView)
 
         titleTextView.text = carItem.title

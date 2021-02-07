@@ -19,8 +19,8 @@ class CarDetailImageViewHolder(private val view: View) : RecyclerView.ViewHolder
         Glide.with(view.context)
             .applyDefaultRequestOptions(requestOptions)
             .load(imageUrl.replace("{0}", "800x600", false))
-            .fitCenter()
-            .override(1920, 1080)
+            .centerCrop()
             .into(imageView)
     }
+
 }

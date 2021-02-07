@@ -5,7 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
 
-class CarDetailImageAdapter : RecyclerView.Adapter<CarDetailImageViewHolder>() {
+class CarDetailImageAdapter(var onItemClickListener: OnItemClickListener) :
+    RecyclerView.Adapter<CarDetailImageViewHolder>() {
+    public interface OnItemClickListener {
+        fun onItemClicked(url: String)
+    }
+
     private var imageUrls = listOf<String>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarDetailImageViewHolder =
@@ -15,8 +20,15 @@ class CarDetailImageAdapter : RecyclerView.Adapter<CarDetailImageViewHolder>() {
 
     override fun getItemCount(): Int = imageUrls.size
 
-    override fun onBindViewHolder(holder: CarDetailImageViewHolder, position: Int) =
-        holder.bind(imageUrls[position])
+    override fun onBindViewHolder(holder: CarDetailImageViewHolder, position: Int) {
+        imageUrls[position].let { url ->
+            holder.bind(url)
+            holder.itemView.setOnClickListener {
+                onItemClickListener.onItemClicked(url)
+            }
+        }
+    }
+
 
     fun submitList(imageUrls: List<String>?) {
         this.imageUrls = imageUrls ?: emptyList()

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.arabam.android.assigment.R
 import com.arabam.android.assigment.ui.fragments.CarDetailFragment
 import com.arabam.android.assigment.ui.fragments.CarListFragment
+import com.arabam.android.assigment.ui.fragments.FullScreenImageFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     private fun showCarListFragment() {
         val carListFragment = CarListFragment()
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.carListFragment, carListFragment)
+            replace(R.id.fragment, carListFragment)
             commit()
         }
     }
@@ -31,7 +32,18 @@ class MainActivity : AppCompatActivity() {
         bundle.putInt("id", id)
         carDetailFragment.arguments = bundle
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.carListFragment, carDetailFragment).addToBackStack(null)
+            replace(R.id.fragment, carDetailFragment).addToBackStack(null)
+            commit()
+        }
+    }
+
+    fun showFullScreenFragment(url: String) {
+        val fullScreenFragment = FullScreenImageFragment()
+        val bundle = Bundle()
+        bundle.putString("url", url)
+        fullScreenFragment.arguments = bundle
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment, fullScreenFragment).addToBackStack(null)
             commit()
         }
     }

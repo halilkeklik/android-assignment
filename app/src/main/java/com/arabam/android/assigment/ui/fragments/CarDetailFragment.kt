@@ -14,9 +14,11 @@ import com.arabam.android.assigment.R
 import com.arabam.android.assigment.adapters.CarDetailImageAdapter
 import com.arabam.android.assigment.adapters.CarDetailPropertiesAdapter
 import com.arabam.android.assigment.models.FetchState
+import com.arabam.android.assigment.ui.activites.MainActivity
 import com.arabam.android.assigment.ui.viewModels.CarDetailViewModel
 
-class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
+class CarDetailFragment : Fragment(R.layout.fragment_car_detail),
+    CarDetailImageAdapter.OnItemClickListener {
 
     private lateinit var viewPager2: ViewPager2
     private lateinit var viewPagerAdapter: CarDetailImageAdapter
@@ -50,7 +52,7 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
     }
 
     private fun initViews() {
-        viewPagerAdapter = CarDetailImageAdapter()
+        viewPagerAdapter = CarDetailImageAdapter(this)
         viewPager2.adapter = viewPagerAdapter
 
         propertiesAdapter = CarDetailPropertiesAdapter()
@@ -77,6 +79,10 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
             detailLayout.visibility =
                 if (state == FetchState.DONE) View.VISIBLE else View.GONE
         })
+    }
+
+    override fun onItemClicked(url: String) {
+        (activity as MainActivity).showFullScreenFragment(url)
     }
 
 }
