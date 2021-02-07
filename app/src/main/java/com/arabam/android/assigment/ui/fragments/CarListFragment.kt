@@ -1,59 +1,69 @@
 package com.arabam.android.assigment.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
 import com.arabam.android.assigment.adapters.CarItemAdapter
-import com.arabam.android.assigment.models.CarItem
-import com.arabam.android.assigment.repository.CarRepository
+import com.arabam.android.assigment.models.State
 import com.arabam.android.assigment.ui.activites.MainActivity
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.observers.DisposableSingleObserver
-import io.reactivex.schedulers.Schedulers
+import com.arabam.android.assigment.ui.viewModels.CarListViewModel
 
 class CarListFragment : Fragment(R.layout.fragment_car_list), CarItemAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var carItemAdapter: CarItemAdapter
-    private lateinit var carRepository: CarRepository
+    private lateinit var carListViewModel: CarListViewModel
+    private lateinit var progressView: ProgressBar
+    private lateinit var errorTextView: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         recyclerView = view.findViewById(R.id.recyclerview)
-        initRecyclerView()
-        carRepository = CarRepository()
-        addCarList()
+        progressView = view.findViewById(R.id.progress_bar)
+        errorTextView = view.findViewById(R.id.txt_error)
+        carListViewModel = ViewModelProvider(this).get(CarListViewModel::class.java)
+        initViews()
+        observeViewModel()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    private fun addCarList() {
-        carRepository.getCarList()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object : DisposableSingleObserver<List<CarItem>>(){
-                override fun onError(e: Throwable) {
-                    Log.e("CarList","Fetch Error",e)
-                }
-
-                override fun onSuccess(carList: List<CarItem>) {
-                    carItemAdapter.submitList(carList)
-                }
-            })
-    }
-
-    private fun initRecyclerView() {
+    private fun initViews() {
+        errorTextView.setOnClickListener {
+            carListViewModel.retry()
+        }
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             carItemAdapter = CarItemAdapter(this@CarListFragment)
             adapter = carItemAdapter
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                    if (recyclerView.canScrollVertically(1).not()) {
+                        carListViewModel.retry()
+                    }
+                }
+            })
         }
+    }
+
+    private fun observeViewModel() = with(carListViewModel) {
+        getCarList().observe(viewLifecycleOwner, {
+            carItemAdapter.submitList(it)
+        })
+        getState().observe(viewLifecycleOwner, { state ->
+            progressView.visibility =
+                if (state == State.LOADING) View.VISIBLE else View.GONE
+            errorTextView.visibility =
+                if (state == State.ERROR) View.VISIBLE else View.GONE
+            recyclerView.visibility =
+                if (state != State.ERROR) View.VISIBLE else View.GONE
+        })
     }
 
     override fun onItemClicked(id: Int) {

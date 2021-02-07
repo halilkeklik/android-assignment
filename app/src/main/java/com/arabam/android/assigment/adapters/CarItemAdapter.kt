@@ -15,7 +15,7 @@ class CarItemAdapter(
         fun onItemClicked(id: Int)
     }
 
-    private var carlist: List<CarItem> = mutableListOf()
+    private val carlist = mutableListOf<CarItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarItemViewHolder {
         return CarItemViewHolder(
@@ -39,7 +39,7 @@ class CarItemAdapter(
     }
 
     fun submitList(carList: List<CarItem>) {
-        this.carlist = carList
+        this.carlist.addAll(carList)
         notifyDataSetChanged()
     }
 

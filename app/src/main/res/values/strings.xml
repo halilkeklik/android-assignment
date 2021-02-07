@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">arabam</string>
     <string name="price_formatted">%.02f TL</string>
+    <string name="location">%s / %s</string>
 
 </resources>

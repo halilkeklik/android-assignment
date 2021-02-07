@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 class CarItemViewHolder(
-    private val view: View
+    private val view: View,
 ) : RecyclerView.ViewHolder(view) {
 
     private val imageView: ImageView = view.findViewById(R.id.photo)
@@ -32,7 +32,9 @@ class CarItemViewHolder(
             .into(imageView)
 
         titleTextView.text = carItem.title
-        locationTextView.text = """${carItem.location.cityName} / ${carItem.location.townName}"""
+        locationTextView.text = view.context.getString(R.string.location,
+            carItem.location.cityName,
+            carItem.location.townName)
 
         priceTextView.text = carItem.priceFormatted
             ?: view.context.getString(R.string.price_formatted, carItem.price)

@@ -5,13 +5,17 @@ import com.arabam.android.assigment.models.*
 import io.reactivex.Single
 
 class CarRepository {
-    val arabamAPIService = ArabamAPIService()
+    private val arabamAPIService = ArabamAPIService()
 
-    fun getCarList(): Single<List<CarItem>> {
-        return arabamAPIService.getCarList()
+    companion object {
+        public const val TAKE_COUNT = 10
     }
 
-    fun getCarDetail(id:Int): Single<CarDetail>{
+    fun getCarList(skip: Int = 0, take: Int = TAKE_COUNT): Single<List<CarItem>> {
+        return arabamAPIService.getCarList(skip, take)
+    }
+
+    fun getCarDetail(id: Int): Single<CarDetail> {
         return arabamAPIService.getCarDetail(id)
     }
 
