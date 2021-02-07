@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.arabam.android.assigment.models.CarItem
-import com.arabam.android.assigment.models.State
+import com.arabam.android.assigment.models.FetchState
 import com.arabam.android.assigment.repository.CarDataSource
 import com.arabam.android.assigment.repository.CarDataSourceFactory
 import com.arabam.android.assigment.repository.CarRepository
@@ -30,7 +30,7 @@ class CarListViewModel() : ViewModel() {
         carList = LivePagedListBuilder(carDataSourceFactory, config).build()
     }
 
-    fun getState(): LiveData<State> = Transformations.switchMap(
+    fun getState(): LiveData<FetchState> = Transformations.switchMap(
         carDataSourceFactory.carDataSourceLiveData,
         CarDataSource::state
     )

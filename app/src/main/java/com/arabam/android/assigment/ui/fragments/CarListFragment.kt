@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
 import com.arabam.android.assigment.adapters.CarItemAdapter
-import com.arabam.android.assigment.models.State
+import com.arabam.android.assigment.models.FetchState
 import com.arabam.android.assigment.ui.activites.MainActivity
 import com.arabam.android.assigment.ui.viewModels.CarListViewModel
 
@@ -58,11 +58,11 @@ class CarListFragment : Fragment(R.layout.fragment_car_list), CarItemAdapter.OnI
         })
         getState().observe(viewLifecycleOwner, { state ->
             progressView.visibility =
-                if (state == State.LOADING) View.VISIBLE else View.GONE
+                if (state == FetchState.LOADING) View.VISIBLE else View.GONE
             errorTextView.visibility =
-                if (state == State.ERROR) View.VISIBLE else View.GONE
+                if (state == FetchState.ERROR) View.VISIBLE else View.GONE
             recyclerView.visibility =
-                if (state != State.ERROR) View.VISIBLE else View.GONE
+                if (state != FetchState.ERROR) View.VISIBLE else View.GONE
         })
     }
 

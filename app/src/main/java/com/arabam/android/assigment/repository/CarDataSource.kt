@@ -1,10 +1,12 @@
 package com.arabam.android.assigment.repository
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.arabam.android.assigment.models.CarItem
-import com.arabam.android.assigment.models.State
+import com.arabam.android.assigment.models.FetchState
 import com.arabam.android.assigment.repository.CarRepository.Companion.TAKE_COUNT
+import com.arabam.android.assigment.ui.viewModels.CarDetailViewModel
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -16,7 +18,7 @@ class CarDataSource(
     private val compositeDisposable: CompositeDisposable,
 ) : PageKeyedDataSource<Int, CarItem>() {
 
-    var state: MutableLiveData<State> = MutableLiveData()
+    var state: MutableLiveData<FetchState> = MutableLiveData()
     private var retryCompletable: Completable? = null
     private var isLastPage = false
 
@@ -39,7 +41,7 @@ class CarDataSource(
         page: Int,
         callback: (before: Int?, next: Int?, result: List<CarItem>) -> Unit,
     ) {
-        updateState(State.LOADING)
+        updateState(FetchState.LOADING)
         compositeDisposable.add(
             carRepository.getCarList(TAKE_COUNT * page)
                 .subscribeOn(Schedulers.io())
@@ -47,7 +49,7 @@ class CarDataSource(
                 .subscribe(
                     { response ->
                         isLastPage = response.size < TAKE_COUNT
-                        updateState(State.DONE)
+                        updateState(FetchState.DONE)
                         callback(
                             if (page == 0) null else page - 1,
                             if (isLastPage) null else page + 1,
@@ -55,7 +57,8 @@ class CarDataSource(
                         )
                     }
                 ) {
-                    updateState(State.ERROR)
+                    updateState(FetchState.ERROR)
+                    Log.e(CarDataSource::class.toString(), "Car List Fetch Error", it)
                     setRetry {
                         if (isLastPage.not())
                             load(page, callback)
@@ -64,7 +67,7 @@ class CarDataSource(
         )
     }
 
-    private fun updateState(state: State) {
+    private fun updateState(state: FetchState) {
         this.state.postValue(state)
     }
 

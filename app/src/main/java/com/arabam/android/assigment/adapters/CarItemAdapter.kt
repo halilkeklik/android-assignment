@@ -22,10 +22,10 @@ class CarItemAdapter(
     }
 
     override fun onBindViewHolder(holderCarItem: CarItemViewHolder, position: Int) {
-        getItem(position)?.let {
-            holderCarItem.bind(it)
+        getItem(position)?.let { carItem ->
+            holderCarItem.bind(carItem)
             holderCarItem.itemView.setOnClickListener {
-                onItemClickListener.onItemClicked(it.id)
+                onItemClickListener.onItemClicked(carItem.id)
             }
         }
 

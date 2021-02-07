@@ -1,80 +1,82 @@
 package com.arabam.android.assigment.ui.fragments
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.arabam.android.assigment.R
 import com.arabam.android.assigment.adapters.CarDetailImageAdapter
 import com.arabam.android.assigment.adapters.CarDetailPropertiesAdapter
-import com.arabam.android.assigment.models.CarDetail
-import com.arabam.android.assigment.models.CarItem
-import com.arabam.android.assigment.repository.CarRepository
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.observers.DisposableSingleObserver
-import io.reactivex.schedulers.Schedulers
+import com.arabam.android.assigment.models.FetchState
+import com.arabam.android.assigment.ui.viewModels.CarDetailViewModel
 
 class CarDetailFragment : Fragment(R.layout.fragment_car_detail) {
 
     private lateinit var viewPager2: ViewPager2
     private lateinit var viewPagerAdapter: CarDetailImageAdapter
-    private lateinit var carRepository: CarRepository
     private lateinit var propertiesView: RecyclerView
     private lateinit var propertiesAdapter: CarDetailPropertiesAdapter
-    lateinit var detailTitleTextView: TextView
-    lateinit var detailPriceTextView: TextView
-    lateinit var detailModelTextView: TextView
-    lateinit var detailDateTextView: TextView
+    private lateinit var carDetailViewModel: CarDetailViewModel
+    private lateinit var detailTitleTextView: TextView
+    private lateinit var detailPriceTextView: TextView
+    private lateinit var detailModelTextView: TextView
+    private lateinit var detailDateTextView: TextView
+    private lateinit var progressView: ProgressBar
+    private lateinit var errorTextView: TextView
+    private lateinit var detailLayout: LinearLayout
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val id = arguments?.getInt("id")
         viewPager2 = view.findViewById(R.id.viewPager2)
-        viewPagerAdapter = CarDetailImageAdapter()
-        propertiesView = view.findViewById(R.id.detail_properties)
-        propertiesAdapter = CarDetailPropertiesAdapter()
-        carRepository = CarRepository()
-
-
-        detailTitleTextView = view.findViewById(R.id.detail_title)
-        detailModelTextView = view.findViewById(R.id.detail_model)
+        detailDateTextView = view.findViewById(R.id.detail_date)
         detailPriceTextView = view.findViewById(R.id.detail_price)
-        detailDateTextView=view.findViewById(R.id.detail_date)
+        detailModelTextView = view.findViewById(R.id.detail_model)
+        detailTitleTextView = view.findViewById(R.id.detail_title)
+        propertiesView = view.findViewById(R.id.detail_properties)
+        progressView = view.findViewById(R.id.progress_bar)
+        errorTextView = view.findViewById(R.id.txt_error)
+        detailLayout = view.findViewById(R.id.detail_layout)
 
-        if (id != null) {
-            getCarDetail(id)
-        }
+        carDetailViewModel = ViewModelProvider(this).get(CarDetailViewModel::class.java)
+        initViews()
+        observeViewModel()
 
     }
 
-    @SuppressLint("CheckResult")
-    fun getCarDetail(id:Int){
-        carRepository.getCarDetail(id)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object : DisposableSingleObserver<CarDetail>() {
-                override fun onSuccess(carDetail: CarDetail) {
-                    detailTitleTextView.text = carDetail.title
-                    detailModelTextView.text = carDetail.modelName
-                    detailDateTextView.text= carDetail.dateFormatted
-                    detailPriceTextView.text = carDetail.priceFormatted
+    private fun initViews() {
+        viewPagerAdapter = CarDetailImageAdapter()
+        viewPager2.adapter = viewPagerAdapter
 
-                    viewPager2.adapter = viewPagerAdapter
-                    viewPagerAdapter.submitList(carDetail.photos)
-
-                    propertiesView.adapter = propertiesAdapter
-                    propertiesAdapter.submitList(carDetail.properties)
-                    propertiesView.layoutManager = LinearLayoutManager(context)
-                }
-
-                override fun onError(e: Throwable) {
-                    Log.e("CarDetail","Fetch Error",e)
-                }
-
-            })
+        propertiesAdapter = CarDetailPropertiesAdapter()
+        propertiesView.adapter = propertiesAdapter
+        propertiesView.layoutManager = LinearLayoutManager(context)
     }
+
+    private fun observeViewModel() = with(carDetailViewModel) {
+        getCarDetail().observe(viewLifecycleOwner, {
+            detailTitleTextView.text = it.title
+            detailModelTextView.text = it.modelName
+            detailDateTextView.text = it.dateFormatted
+            detailPriceTextView.text = it.priceFormatted
+
+            viewPagerAdapter.submitList(it.photos)
+
+            propertiesAdapter.submitList(it.properties)
+        })
+        getState().observe(viewLifecycleOwner, { state ->
+            progressView.visibility =
+                if (state == FetchState.LOADING) View.VISIBLE else View.GONE
+            errorTextView.visibility =
+                if (state == FetchState.ERROR) View.VISIBLE else View.GONE
+            detailLayout.visibility =
+                if (state == FetchState.DONE) View.VISIBLE else View.GONE
+        })
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.arabam.android.assigment.models
 
-enum class State {
+enum class FetchState {
     DONE,
     LOADING,
     ERROR
