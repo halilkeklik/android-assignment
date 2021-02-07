@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">arabam</string>
+    <string name="app_name">Arabam</string>
     <string name="price_formatted">%.02f TL</string>
     <string name="location">%s / %s</string>
+    <string name="location_default">Lokasyon Bilinmiyor</string>
+    <string name="list_fetch_error">Liste gösterilemiyor</string>
 
 </resources>

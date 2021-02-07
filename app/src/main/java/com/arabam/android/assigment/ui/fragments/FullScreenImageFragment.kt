@@ -27,8 +27,8 @@ class FullScreenImageFragment : Fragment(R.layout.fragment_full_screen_image) {
 
     private fun bind(imageUrl: String) {
         val requestOptions = RequestOptions()
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_foreground)
+            .placeholder(R.mipmap.ic_launcher_foreground)
+            .error(R.mipmap.ic_launcher_foreground)
 
 
         context?.let {

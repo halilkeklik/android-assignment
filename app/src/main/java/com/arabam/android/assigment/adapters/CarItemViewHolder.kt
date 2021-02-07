@@ -22,8 +22,8 @@ class CarItemViewHolder(
     fun bind(carItem: CarItem) {
 
         val requestOptions = RequestOptions()
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_foreground)
+            .placeholder(R.mipmap.ic_launcher_foreground)
+            .error(R.mipmap.ic_launcher_foreground)
 
         Glide.with(view.context)
             .applyDefaultRequestOptions(requestOptions)
@@ -32,10 +32,13 @@ class CarItemViewHolder(
             .into(imageView)
 
         titleTextView.text = carItem.title
-        locationTextView.text = view.context.getString(R.string.location,
-            carItem.location.cityName,
-            carItem.location.townName)
-
+        locationTextView.text =
+            if (carItem.location.cityName != null || carItem.location.townName != null)
+                view.context.getString(R.string.location,
+                    carItem.location.cityName,
+                    carItem.location.townName)
+            else
+                view.context.getString(R.string.location_default)
         priceTextView.text = carItem.priceFormatted
             ?: view.context.getString(R.string.price_formatted, carItem.price)
     }

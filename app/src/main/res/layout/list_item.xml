@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/photo"
-                android:layout_width="70dp"
-                android:layout_height="91dp"
+                android:layout_width="@dimen/list_image_width"
+                android:layout_height="@dimen/list_image_height"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"

@@ -12,8 +12,8 @@ class CarDetailImageViewHolder(private val view: View) : RecyclerView.ViewHolder
 
     fun bind(imageUrl: String) {
         val requestOptions = RequestOptions()
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_foreground)
+            .placeholder(R.mipmap.ic_launcher_foreground)
+            .error(R.mipmap.ic_launcher_foreground)
 
 
         Glide.with(view.context)
