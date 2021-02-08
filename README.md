@@ -9,7 +9,7 @@
    * Araba listesini ve stateleri tutmak için ViewModel oluşturdum. 
    ViewModel kullanma sebebim fragmentların lifecyclelarında sürecinde başına bir şey gelmesi durumunda datanın kaybolup bir hataya yol açmasın diye.
    * Paging için "androidx.paging:paging kütüphanesini kullandım çünkü kendi başına halledebiliryor ve bu benim işimi kolaylaştırdı.
-   * Api kullanmak için retrofit kullandım.
+   * HTTP isteklerini verilen API'den alabilmek için retrofit kullandım
    * Araba listesi için recyclerview kullandım 
      çünkü recyclerview diğer alternatiflerine göre(Listview..) viewleri oluşturuken daha verimli olduğunu düşündüğüm için.
 
@@ -24,7 +24,7 @@
    * Bu fragmentta viewmodel kullanmadım, sadece tıklanan fotografın gözükmesi işlemi için gerek olmadığını düşündüm. 
 
 ### Varsayımlarım
-* proretieslerden bir tane elemanı bile boş olursa göstermedim çünkü eksik datayı göstermek kötü olur diye düşündüm
+* proreties bir tane elemanı bile boş olursa göstermedim çünkü eksik datayı göstermek kötü olur diye düşündüm
 * location,title,model name, datası gelmeme ihtimaline karşı default text atadım
 * Priceformatted datası gelmezse price datasını gösterilmesini sağladım.
 * Dateformatted datası gelmezse yerine date datasını gösterilmesini sağladım
