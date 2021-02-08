@@ -9,10 +9,10 @@ android {
 
     defaultConfig {
         applicationId "com.arabam.android.assigment"
-        minSdkVersion 22
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
