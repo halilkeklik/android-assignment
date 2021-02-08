@@ -10,5 +10,5 @@
     <dimen name="card_elevation">1dp</dimen>
     <dimen name="list_location_width">167dp</dimen>
     <dimen name="view_pager_height">280dp</dimen>
-    <dimen name="car_detail_properties_width">250dp</dimen>
+    <dimen name="car_detail_properties_width">270dp</dimen>
 </resources>
