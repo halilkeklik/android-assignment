@@ -62,10 +62,12 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail),
 
     private fun observeViewModel() = with(carDetailViewModel) {
         getCarDetail().observe(viewLifecycleOwner, {
-            detailTitleTextView.text = it.title
-            detailModelTextView.text = it.modelName
-            detailDateTextView.text = it.dateFormatted
-            detailPriceTextView.text = it.priceFormatted
+            detailTitleTextView.text = it.title ?: view!!.context.getString(R.string.car_defult)
+            detailModelTextView.text = it.modelName ?: view!!.context.getString(R.string.car_defult)
+            detailDateTextView.text =
+                it.dateFormatted ?: view!!.context.getString(R.string.car_defult)
+            detailPriceTextView.text =
+                it.priceFormatted ?: view!!.context.getString(R.string.car_defult)
 
             viewPagerAdapter.submitList(it.photos)
 

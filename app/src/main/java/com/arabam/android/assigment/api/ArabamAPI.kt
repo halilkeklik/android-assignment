@@ -4,7 +4,6 @@ import com.arabam.android.assigment.models.CarDetail
 import com.arabam.android.assigment.models.CarItem
 import io.reactivex.Single
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ArabamAPI {

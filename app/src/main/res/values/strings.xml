@@ -4,5 +4,6 @@
     <string name="location">%s / %s</string>
     <string name="location_default">Lokasyon Bilinmiyor</string>
     <string name="list_fetch_error">Liste gösterilemiyor</string>
+    <string name="car_defult">Bilgi girilmemiştir</string>
 
 </resources>

@@ -3,7 +3,6 @@ package com.arabam.android.assigment.adapters
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
 import com.arabam.android.assigment.models.CarItem
@@ -31,7 +30,7 @@ class CarItemViewHolder(
             .centerCrop()
             .into(imageView)
 
-        titleTextView.text = carItem.title
+        titleTextView.text = carItem.title ?: view.context.getString(R.string.car_defult)
         locationTextView.text =
             if (carItem.location.cityName != null || carItem.location.townName != null)
                 view.context.getString(R.string.location,

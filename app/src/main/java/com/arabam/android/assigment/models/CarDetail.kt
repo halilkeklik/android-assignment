@@ -28,6 +28,6 @@ data class CarDetail(
     @SerializedName("userInfo")
     val userInfo: UserInfo,
     @SerializedName("text")
-    val text: String?
+    val text: String?,
 )
 

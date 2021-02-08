@@ -6,7 +6,6 @@ import androidx.paging.PageKeyedDataSource
 import com.arabam.android.assigment.models.CarItem
 import com.arabam.android.assigment.models.FetchState
 import com.arabam.android.assigment.repository.CarRepository.Companion.TAKE_COUNT
-import com.arabam.android.assigment.ui.viewModels.CarDetailViewModel
 import io.reactivex.Completable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

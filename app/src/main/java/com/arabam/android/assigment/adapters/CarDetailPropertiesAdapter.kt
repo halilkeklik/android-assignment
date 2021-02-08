@@ -2,7 +2,6 @@ package com.arabam.android.assigment.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.arabam.android.assigment.R
 import com.arabam.android.assigment.models.Properties
@@ -12,7 +11,7 @@ class CarDetailPropertiesAdapter : RecyclerView.Adapter<CarDetailPropertiesViewH
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        viewType: Int,
     ): CarDetailPropertiesViewHolder =
         CarDetailPropertiesViewHolder(
             LayoutInflater.from(parent.context)

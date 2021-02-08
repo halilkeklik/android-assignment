@@ -7,7 +7,7 @@ import io.reactivex.disposables.CompositeDisposable
 
 class CarDataSourceFactory(
     private val repository: CarRepository,
-    private val compositeDisposable: CompositeDisposable
+    private val compositeDisposable: CompositeDisposable,
 ) : DataSource.Factory<Int, CarItem>() {
 
     val carDataSourceLiveData = MutableLiveData<CarDataSource>()

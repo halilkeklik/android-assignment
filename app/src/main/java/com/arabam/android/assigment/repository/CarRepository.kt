@@ -1,7 +1,8 @@
 package com.arabam.android.assigment.repository
 
 import com.arabam.android.assigment.api.ArabamAPIService
-import com.arabam.android.assigment.models.*
+import com.arabam.android.assigment.models.CarDetail
+import com.arabam.android.assigment.models.CarItem
 import io.reactivex.Single
 
 class CarRepository {
