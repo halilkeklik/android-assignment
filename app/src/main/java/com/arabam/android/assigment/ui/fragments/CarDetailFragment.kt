@@ -29,6 +29,7 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail),
     private lateinit var detailPriceTextView: TextView
     private lateinit var detailModelTextView: TextView
     private lateinit var detailDateTextView: TextView
+    private lateinit var detailLocationTextView: TextView
     private lateinit var progressView: ProgressBar
     private lateinit var errorTextView: TextView
     private lateinit var detailLayout: LinearLayout
@@ -44,7 +45,7 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail),
         progressView = view.findViewById(R.id.progress_bar)
         errorTextView = view.findViewById(R.id.txt_error)
         detailLayout = view.findViewById(R.id.detail_layout)
-
+        detailLocationTextView = view.findViewById(R.id.detail_location)
         carDetailViewModel = ViewModelProvider(this).get(CarDetailViewModel::class.java)
         initViews()
         observeViewModel()
@@ -62,16 +63,28 @@ class CarDetailFragment : Fragment(R.layout.fragment_car_detail),
 
     private fun observeViewModel() = with(carDetailViewModel) {
         getCarDetail().observe(viewLifecycleOwner, {
-            detailTitleTextView.text = it.title ?: view!!.context.getString(R.string.car_defult)
-            detailModelTextView.text = it.modelName ?: view!!.context.getString(R.string.car_defult)
+            detailTitleTextView.text = it.title ?: getString(R.string.defult_value)
+            detailModelTextView.text = it.modelName ?: getString(R.string.defult_value)
             detailDateTextView.text =
-                it.dateFormatted ?: view!!.context.getString(R.string.car_defult)
+                it.dateFormatted ?: it.date
             detailPriceTextView.text =
-                it.priceFormatted ?: view!!.context.getString(R.string.car_defult)
-
-            viewPagerAdapter.submitList(it.photos)
-
-            propertiesAdapter.submitList(it.properties)
+                it.priceFormatted ?: getString(R.string.price_formatted, it.price)
+            detailLocationTextView.text =
+                if (it.location.cityName != null || it.location.townName != null)
+                    getString(R.string.location,
+                        it.location.cityName,
+                        it.location.townName)
+                else
+                    getString(R.string.location_default)
+            viewPagerAdapter.submitList(it.photos.mapNotNull {
+                it
+            })
+            // properties herhangi bir elemanı yoksa listede gözükmemesi için filter kullanıldı
+            propertiesAdapter.submitList(it.properties.mapNotNull {
+                it
+            }.filter {
+                it.name != null && it.value != null
+            })
         })
         getState().observe(viewLifecycleOwner, { state ->
             progressView.visibility =

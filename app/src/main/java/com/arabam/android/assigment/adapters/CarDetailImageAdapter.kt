@@ -30,8 +30,8 @@ class CarDetailImageAdapter(var onItemClickListener: OnItemClickListener) :
     }
 
 
-    fun submitList(imageUrls: List<String>?) {
-        this.imageUrls = imageUrls ?: emptyList()
+    fun submitList(imageUrls: List<String>) {
+        this.imageUrls = imageUrls
         notifyDataSetChanged()
     }
 }

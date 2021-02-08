@@ -5,11 +5,10 @@
     <dimen name="layout_margin">5dp</dimen>
     <dimen name="small_text_size">13sp</dimen>
     <dimen name="text_size">14sp</dimen>
-    <dimen name="detail_text_size">15sp</dimen>
+    <dimen name="detail_text_size">13sp</dimen>
     <dimen name="card_corner_radius">4dp</dimen>
     <dimen name="card_elevation">1dp</dimen>
-    <dimen name="card_view_height">134dp</dimen>
     <dimen name="list_location_width">167dp</dimen>
-    <dimen name="view_pager_height">296dp</dimen>
-    <dimen name="car_detail_properties_width">273dp</dimen>
+    <dimen name="view_pager_height">280dp</dimen>
+    <dimen name="car_detail_properties_width">250dp</dimen>
 </resources>

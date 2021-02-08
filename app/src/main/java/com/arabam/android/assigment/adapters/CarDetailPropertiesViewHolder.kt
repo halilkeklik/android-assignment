@@ -13,7 +13,9 @@ class CarDetailPropertiesViewHolder(private val view: View) : RecyclerView.ViewH
     private val propertiesNameTextView: TextView = view.findViewById(R.id.detail_name)
 
     fun bind(properties: Properties) {
-        propertiesValueTextView.text = properties.value?:view.context.getString(R.string.car_defult)
-        propertiesNameTextView.text = properties.name?:view.context.getString(R.string.car_defult)
+        propertiesValueTextView.text =
+            properties.value ?: view.context.getString(R.string.defult_value)
+        propertiesNameTextView.text =
+            properties.name ?: view.context.getString(R.string.defult_value)
     }
 }

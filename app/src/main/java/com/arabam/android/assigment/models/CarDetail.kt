@@ -18,13 +18,13 @@ data class CarDetail(
     @SerializedName("dateFormatted")
     val dateFormatted: String?,
     @SerializedName("photos")
-    val photos: List<String>?,
+    val photos: List<String?>,
     @SerializedName("location")
     val location: Location,
     @SerializedName("category")
     val category: Category,
     @SerializedName("properties")
-    val properties: List<Properties>,
+    val properties: List<Properties?>,
     @SerializedName("userInfo")
     val userInfo: UserInfo,
     @SerializedName("text")

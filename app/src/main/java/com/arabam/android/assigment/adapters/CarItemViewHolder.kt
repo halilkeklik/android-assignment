@@ -30,7 +30,7 @@ class CarItemViewHolder(
             .centerCrop()
             .into(imageView)
 
-        titleTextView.text = carItem.title ?: view.context.getString(R.string.car_defult)
+        titleTextView.text = carItem.title ?: view.context.getString(R.string.defult_value)
         locationTextView.text =
             if (carItem.location.cityName != null || carItem.location.townName != null)
                 view.context.getString(R.string.location,
